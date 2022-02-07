@@ -18,8 +18,8 @@ This site is a job search managment tool. It keeps track of:
 #### Component Hierarchy
 <img height="500" src="./CHD.png" alt="component hierarchy diagram">
 
-
 #### ERD
+<img height="500" src="./ERD.png" alt="ERD">
 
 ## Stack:
 * Postgress
