@@ -1,6 +1,13 @@
 import React, { useState } from 'react'
 import './styles/App.css'
 import { Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import LandingPage from './LandingPage'
+import Dashboard from './dashboard'
+import CreateAccount from './components/CreateAccount'
+import Login from './components/Login'
+import EditPage from './components/EditPage'
+
 
 
 function App() {
