@@ -10,13 +10,13 @@ This site is a job search managment tool. It keeps track of:
 * links to the job posts
 * company websites
 * state of application: pre-application, applied, interview, accepted, etc.
-* point od contact name and contact info
+* point of contact name and contact info
 
 
 ## Plans
 
 #### Component Hierarchy
-<img height="250" src="./CHD.png" alt="component hierarchy diagram">
+<img height="500" src="./CHD.png" alt="component hierarchy diagram">
 
 
 #### ERD
