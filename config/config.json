@@ -1,0 +1,17 @@
+{
+  "development": {
+    "database": "helper_development",
+    "host": "127.0.0.1",
+    "dialect": "postgress"
+  },
+  "test": {
+    "database": "helper_test",
+    "host": "127.0.0.1",
+    "dialect": "postgress"
+  },
+  "production": {
+    "database": "helper_production",
+    "host": "127.0.0.1",
+    "dialect": "postgress"
+  }
+}
