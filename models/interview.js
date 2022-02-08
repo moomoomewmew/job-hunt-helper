@@ -11,19 +11,19 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Interview.belongsTo(models.Opportunity, { foreignKey: 'id' })
     }
   };
   Interview.init({
     opportunity: DataTypes.STRING,
     time: DataTypes.STRING,
     date: DataTypes.STRING,
-    meetingLink: DataTypes.STRING,
     interviewer: DataTypes.STRING,
     location: DataTypes.STRING,
-    notes: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Interview',
+    tableName: 'interviews'
   });
   return Interview;
 };

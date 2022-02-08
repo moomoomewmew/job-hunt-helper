@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Opportunity.belongsTo(models.User, {foreignKey: 'id'})
     }
   };
   Opportunity.init({
@@ -20,14 +21,12 @@ module.exports = (sequelize, DataTypes) => {
     location: DataTypes.STRING,
     pointOfContact: DataTypes.STRING,
     phoneNumber: DataTypes.STRING,
-    jobPostURL: DataTypes.STRING,
-    companyURL: DataTypes.STRING,
-    DateApplied: DataTypes.STRING,
-    interview: DataTypes.ARRAY,
-    notes: DataTypes.STRING
+    jobPostURL: DataTypes.STRING
+
   }, {
     sequelize,
     modelName: 'Opportunity',
+    tableName: 'opportunities'
   });
   return Opportunity;
 };
