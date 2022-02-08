@@ -11,24 +11,24 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Opportunity.belongsTo(models.User, {foreignKey: 'userId'})
-      Opportunity.hasMany(models.Interview, {foreignKey: 'opportunityId'})
+      Opportunity.belongsTo(models.User, { foreignKey: 'userId' })
+      Opportunity.hasMany(models.Interview, { foreignKey: 'opportunityId' })
     }
   };
   Opportunity.init({
-    userId: DataTypes.INTEGER,
     jobTitle: DataTypes.STRING,
     company: DataTypes.STRING,
     payRange: DataTypes.STRING,
     location: DataTypes.STRING,
     pointOfContact: DataTypes.STRING,
     phoneNumber: DataTypes.STRING,
-    jobPostURL: DataTypes.STRING
-
+    jobPostURL: DataTypes.STRING,
+    companyURL: DataTypes.STRING,
+    DateApplied: DataTypes.STRING,
+    userId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Opportunity',
-    tableName: 'opportunities'
   });
   return Opportunity;
 };

@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.hasMany(models.Opportunity, {foreignKey: 'userId'})
+      User.hasMany(models.Opportunity, { foreignKey: 'userId' })
     }
   };
   User.init({
@@ -20,7 +20,6 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'User',
-    tableName: 'users'
   });
   return User;
 };

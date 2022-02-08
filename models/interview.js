@@ -18,12 +18,13 @@ module.exports = (sequelize, DataTypes) => {
     opportunityId: DataTypes.INTEGER,
     time: DataTypes.STRING,
     date: DataTypes.STRING,
+    meetingLink: DataTypes.STRING,
     interviewer: DataTypes.STRING,
     location: DataTypes.STRING,
+    notes: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Interview',
-    tableName: 'interviews'
   });
   return Interview;
 };
