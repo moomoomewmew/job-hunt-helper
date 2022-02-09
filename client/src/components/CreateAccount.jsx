@@ -10,9 +10,6 @@ const CreateAccount = (props) => {
     const setUser = props.setUser
 
     const [username, setUserName] = useState('')
-    const [pace, setPace] = useState('party-pace')
-    const [location, setLocation] = useState('NYC')
-    const [leader, setLeader] = useState(true)
     const [password, setPassword] = useState('')
     const [passwordConfirm, setPasswordConfirm] = useState('')
 
@@ -22,7 +19,7 @@ const CreateAccount = (props) => {
     const handleLoginClick = async () => {
 
         try {
-            const resp = await axios.get(`/api/v1/users/${username}`)
+            const resp = await axios.get(`/api/users/${username}`)
             toggleLogin(username)
             console.log(resp.data)
             setUser(resp.data.user[0])
@@ -44,18 +41,6 @@ const CreateAccount = (props) => {
         setPasswordConfirm(e.target.value)
     }
 
-    const savePace = (e) => {
-        setPace(e.target.value)
-    }
-
-    const saveLocation = (e) => {
-        setLocation(e.target.value)
-    }
-
-    const saveLeader = (e) => {
-        setLeader(e.target.value)
-    }
-
     const handleSubmit = async (e) => {
         e.preventDefault()
         if (username === "") {
@@ -70,17 +55,14 @@ const CreateAccount = (props) => {
             alert("Youve sucessfully logged in")
             const request = {
                 username,
-                password,
-                pace,
-                location,
-                leader
+                password
             };
             console.log('creating user with request', request)
-            const res = await axios.post('/api/v1/users', request).then(() => {
+            const res = await axios.post('/api/users', request).then(() => {
                 handleLoginClick()
             })
         } else {
-            console.log('we did it')
+            console.log('something went wrong')
         }
 
     }
