@@ -11,7 +11,7 @@ const LandingPage = () => {
             <div className='description'>
                 <h2>A managment system for your job hunt</h2>
                 <h4>Organize all of your job opportunities in one place</h4>
-                <Link className='sign-up' to="/login">Sign up for free</Link>
+                <Link className='sign-up' to="/newaccount">Sign up for free</Link>
             </div>
             <div className='image'>
 

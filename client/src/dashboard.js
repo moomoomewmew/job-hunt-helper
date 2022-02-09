@@ -10,7 +10,7 @@ export default function Dashboard(props) {
     if (user) {
         return (
             <div>
-                <h3>Hello, {user.username} in {user.location}!</h3>
+                <h3>Hello, {user.username}!</h3>
 
             </div>
         )
@@ -22,3 +22,4 @@ export default function Dashboard(props) {
         )
     }
 }
+

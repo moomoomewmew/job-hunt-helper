@@ -1,44 +1,28 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
-import Dashboard from '../dashboard'
+import { Link, useNavigate } from 'react-router-dom'
+import { RegisterUser } from '../services/Auth'
 
-const CreateAccount = (props) => {
+
+const iState = {
+    userName: '',
+    password: '',
+    confirmPassword: ''
+}
+
+export default function Register(props) {
 
     const navigate = useNavigate()
-    const user = props.user
-    const setUser = props.setUser
+    const [formValues, setFormValues] = useState({
+        userName: '',
+        password: '',
+        confirmPassword: ''
+    })
+    const password = formValues.password
+    const passwordConfirm = formValues.confirmPassword
+    const username = formValues.userName
 
-    const [username, setUserName] = useState('')
-    const [password, setPassword] = useState('')
-    const [passwordConfirm, setPasswordConfirm] = useState('')
-
-    const isLoggedIn = props.isLoggedIn
-    const toggleLogin = props.toggleLogin
-
-    const handleLoginClick = async () => {
-
-        try {
-            const resp = await axios.get(`/api/users/${username}`)
-            toggleLogin(username)
-            console.log(resp.data)
-            setUser(resp.data.user[0])
-        } catch (err) {
-            console.log(err)
-            alert('login failed')
-        }
-    }
-
-    const saveUserName = (e) => {
-        setUserName(e.target.value)
-    }
-
-    const savePassword = (e) => {
-        setPassword(e.target.value)
-    }
-
-    const savePasswordConfirm = (e) => {
-        setPasswordConfirm(e.target.value)
+    const handleChange = (e) => {
+        setFormValues({ ...formValues, [e.target.name]: e.target.value })
     }
 
     const handleSubmit = async (e) => {
@@ -50,65 +34,63 @@ const CreateAccount = (props) => {
             console.log(password.length)
         } else if (password !== passwordConfirm) {
             alert("Your passwords do not match")
-        } else if (username && password === passwordConfirm && password.length > 7) {
-            navigate('/dashboard')
-            alert("Youve sucessfully logged in")
-            const request = {
-                username,
-                password
-            };
-            console.log('creating user with request', request)
-            const res = await axios.post('/api/users', request).then(() => {
-                handleLoginClick()
+        } else if (username && password === passwordConfirm && password.length >= 7) {
+            await RegisterUser({
+                userName: formValues.userName,
+                password: formValues.password
             })
+            setFormValues(iState)
+            navigate('/login')
+            alert("You\'ve sucessfully registered!")
         } else {
-            console.log('something went wrong')
+            console.log('error')
         }
-
     }
 
     return (
-        <div>
-            {!isLoggedIn ?
-                (< div className="form" >
-                    <h1>Sign Up</h1>
-                    <form onSubmit={handleSubmit}>
+        <div className="register-form">
+            <div className="card-overlay centered">
+                <form className="col" onSubmit={handleSubmit}>
+                    <h2 className='login-title'>Create Account</h2>
 
+                    <div className="input-wrapper">
                         <input
+                            onChange={handleChange}
+                            name="userName"
                             type="text"
-                            value={username}
-                            placeholder="username"
-                            id="username"
-                            onChange={saveUserName}
+                            placeholder="Username"
+                            value={formValues.userName}
+                            required
                         />
-                        <label htmlFor="username">Username</label>        
+                    </div>
 
+                    <div className="input-wrapper">
+                        {/* <label htmlFor="password">Password</label> */}
                         <input
+                            onChange={handleChange}
                             type="password"
-                            value={password}
-                            placeholder="Password"
-                            id="password"
-                            onChange={savePassword}
-
+                            name="password"
+                            placeholder='Password'
+                            value={formValues.password}
+                            required
                         />
-                        <label htmlFor="password">Password</label>
-
+                    </div>
+                    <div className="input-wrapper">
+                        {/* <label htmlFor="confirmPassword">Confirm Password</label> */}
                         <input
+                            onChange={handleChange}
                             type="password"
-                            value={passwordConfirm}
-                            placeholder="Confirm password"
-                            id="passwordConfirm"
-                            onChange={savePasswordConfirm}
+                            name="confirmPassword"
+                            placeholder='Confirm Passward'
+                            value={formValues.confirmPassword}
+                            required
                         />
-                        <label htmlFor="passwordConfirm">Confirm password</label>
-
-                        <button type="submit" >Sign Up</button>
-                    </form>
-                </div >) :
-                <Dashboard user={user} />
-            }
+                    </div>
+                    <button type='submit'>
+                        Register
+                    </button>
+                </form>
+            </div>
         </div>
     )
 }
-
-export default CreateAccount

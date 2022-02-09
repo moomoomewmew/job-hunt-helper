@@ -1,80 +1,59 @@
+
 import React, { useState } from 'react'
-import '../styles/login.css'
+import { SignInUser } from '../services/Auth'
 import { Link, useNavigate } from 'react-router-dom'
-import axios from 'axios'
 
-const Login = (props) => {
 
+export default function LogIn(props) {
     const navigate = useNavigate()
-
-    const setUser = props.setUser
-    const isLoggedIn = props.isLoggedIn
-    const toggleLogin = props.toggleLogin
-    console.log(props)
-
-    const [userName, setUserName] = useState('')
-    const [password, setPassword] = useState('')
-
-    const saveUserName = (e) => {
-        setUserName(e.target.value)
+    const [formValues, setFormValues] = useState({ email: '', password: '' })
+    const handleChange = (e) => {
+        setFormValues({ ...formValues, [e.target.name]: e.target.value })
     }
 
-    const savePassword = (e) => {
-        setPassword(e.target.value)
-    }
-
-    const formSubmission = async (e) => {
-        console.log(userName)
-        console.log(password)
+    const handleSubmit = async (e) => {
         e.preventDefault()
-
-        if (userName === "") {
-            alert('Please enter a user name')
-        } else if (password === "") {
-            alert('Please enter a password')
-        } else {
-            try {
-                const resp = await axios.get(`/api/v1/users/${userName}`)
-                toggleLogin(userName)
-                console.log(resp.data)
-                setUser(resp.data.user[0])
-                console.log('set user', resp.data.user[0])
-                alert("Youve sucessfully logged in")
-                navigate('/dashboard')
-            } catch (err) {
-                console.log(err)
-                alert('login failed')
-            }
-
-        }
+        const payload = await SignInUser(formValues)
+        setFormValues({ email: '', password: '' })
+        props.setAuthUser(payload)
+        props.toggleAuthenticated(true)
+        navigate(`/dashboard`)
+        alert('You\'ve successfully logged in!')
     }
+
 
     return (
-        <div className="form">
-            <h1>Login</h1>
-            <form>
-                <input
-                    type="text"
-                    placeholder="Username"
-                    id="username"
-                    onChange={saveUserName}
-                />
-                <label htmlFor="username">Username</label>
-
-                <input
-                    type="password"
-                    placeholder="Password"
-                    id="password"
-                    onChange={savePassword}
-
-                />
-                <label htmlFor="password">Password</label>
-
-                <button type="submit" onClick={formSubmission}>Login</button>
-                <Link to="/newaccount">Create Account</Link>
-            </form>
+        <div className="rigister-form">
+            <div className="register-slip">
+                <form className="col" onSubmit={handleSubmit}>
+                    <div className="input-wrapper">
+                        <h2 className='login-title'>Login</h2>
+                        <input
+                            onChange={handleChange}
+                            name="email"
+                            type="email"
+                            placeholder="email"
+                            value={formValues.email}
+                            required
+                        />
+                    </div>
+                    <div className="input-wrapper">
+                        <input
+                            onChange={handleChange}
+                            type="password"
+                            name="password"
+                            placeholder='Password'
+                            value={formValues.password}
+                            required
+                        />
+                    </div>
+                    <button disabled={!formValues.email || !formValues.password}>
+                        Sign In
+                    </button>
+                </form>
+            </div>
         </div>
     )
 }
 
-export default Login
+
