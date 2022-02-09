@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function LandingPage() {
+const LandingPage = () => {
 
     return (
         <div>
@@ -8,3 +8,5 @@ export default function LandingPage() {
         </div>
     )
 }
+
+export default LandingPage

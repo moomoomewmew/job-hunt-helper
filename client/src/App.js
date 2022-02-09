@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './styles/App.css'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import LandingPage from './LandingPage'
 import Dashboard from './dashboard'
@@ -24,13 +24,13 @@ function App() {
         <Navbar isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} setUser={setUser} />
 
       </header>
-      <Routes>
-        <Route path='/' element={<LandingPage setRide={setRide} user={user} />} />
-        <Route path='/dashboard' element={<Dashboard setRide={setRide} user={user} />} />
-        <Route path='/newaccount' element={<CreateAccount isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} setUser={setUser} user={user} />} />
-        <Route path='/login' element={<Login isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} setUser={setUser} />} />
-        <Route path='/edit' element={<EditPage ride={ride} />} />
-      </Routes>
+        <Routes>
+          <Route path='/dashboard' element={<Dashboard setRide={setRide} user={user} />} />
+          <Route path='/newaccount' element={<CreateAccount isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} setUser={setUser} user={user} />} />
+          <Route path='/login' element={<Login isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} setUser={setUser} />} />
+          <Route path='/edit' element={<EditPage ride={ride} />} />
+          <Route exact path='/' element={<LandingPage setRide={setRide} user={user} />} />
+        </Routes>
     </div>
   )
 }

@@ -99,42 +99,7 @@ const CreateAccount = (props) => {
                             id="username"
                             onChange={saveUserName}
                         />
-                        <label htmlFor="username">Username</label>
-
-                        <div className="dropdowns">
-                            <h5 htmlFor="city">Would You like to be a ride leader?</h5>
-                            <select
-                                value={leader}
-                                name="leader"
-                                id="leader"
-                                onChange={saveLeader}>
-                                <option value="yes">yes</option>
-                                <option value="no">no</option>
-                            </select>
-
-                            <h5 htmlFor="city">What city will you be riding in?</h5>
-                            <select
-                                value={location}
-                                name="location"
-                                id="location"
-                                onChange={saveLocation}>
-                                <option value="NYC">NYC</option>
-                                <option value="ATL">ATL</option>
-                                <option value="LA">LA</option>
-                            </select>
-
-                            <h5 htmlFor="pace">What is your preferred pace?:</h5>
-                            <select
-                                value={pace}
-                                name="pace"
-                                id="pace"
-                                placeholder="pace"
-                                onChange={savePace}>
-                                <option value="party">party pace</option>
-                                <option value="medium">medium pace</option>
-                                <option value="race">race pace</option>
-                            </select>
-                        </div>
+                        <label htmlFor="username">Username</label>        
 
                         <input
                             type="password"
