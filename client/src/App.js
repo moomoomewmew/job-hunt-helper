@@ -19,8 +19,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Job Hunt Helper</h1>
-        <div className="info"><h3>Manage your hunt!</h3></div>
         <Navbar isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} setUser={setUser} />
 
       </header>

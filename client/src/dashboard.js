@@ -17,7 +17,7 @@ export default function Dashboard(props) {
     } else {
         return (
             <div>
-
+                <h1>please log in</h1>
             </div>
         )
     }

@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200&display=swap');
+
+nav{
+    display: flex;
+    align-items: center;
+    height: 2em;
+    font-size: 2em;
+    font-weight: bold;
+    justify-content: space-between;
+    background-image: linear-gradient(to right, #EBE8FE, #C8D2C9,#E9BAC9);
+    width: 100vw;
+    text-decoration: none;
+
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color:#C8D2C9;
+}
+
+.logo {
+    font-family: 'Lobster', cursive;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    margin: 0 .5em;
+    text-shadow: .05em .05em #cacaca;
+}
+
+.nav-right {
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;    
+    color: white;
+    font-size: 1em;
+    margin: 0 .5em;
+    display:flex;
+    justify-content: space-between;
+    width: 8em;
+    padding: 0 .5em;
+}
+
+.transform:hover {
+    transform: scale(1.2);
+}
