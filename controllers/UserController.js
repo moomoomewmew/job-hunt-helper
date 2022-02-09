@@ -1,4 +1,13 @@
-const { User, Event } = require('../models');
+const { User } = require('../models');
+
+const GetAllUsers = async (req, res) => {
+    try {
+        const users = await User.findAll();
+        res.send(users);
+    } catch (error) {
+        throw error;
+    }
+};
 
 
 const GetUserById = async (req, res) => {
