@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 export default function LogIn(props) {
     const navigate = useNavigate()
-    const [formValues, setFormValues] = useState({ email: '', password: '' })
+    const [formValues, setFormValues] = useState({ username: '', password: '' })
     const handleChange = (e) => {
         setFormValues({ ...formValues, [e.target.name]: e.target.value })
     }
@@ -14,7 +14,7 @@ export default function LogIn(props) {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const payload = await SignInUser(formValues)
-        setFormValues({ email: '', password: '' })
+        setFormValues({ username: '', password: '' })
         props.setAuthUser(payload)
         props.toggleAuthenticated(true)
         navigate(`/dashboard`)
@@ -30,10 +30,10 @@ export default function LogIn(props) {
                         <h2 className='login-title'>Login</h2>
                         <input
                             onChange={handleChange}
-                            name="email"
-                            type="email"
-                            placeholder="email"
-                            value={formValues.email}
+                            name="username"
+                            type="username"
+                            placeholder="username"
+                            value={formValues.username}
                             required
                         />
                     </div>
@@ -47,7 +47,7 @@ export default function LogIn(props) {
                             required
                         />
                     </div>
-                    <button disabled={!formValues.email || !formValues.password}>
+                    <button disabled={!formValues.username || !formValues.password}>
                         Sign In
                     </button>
                 </form>
