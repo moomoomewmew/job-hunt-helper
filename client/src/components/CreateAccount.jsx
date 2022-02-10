@@ -20,7 +20,7 @@ export default function Register(props) {
     })
     const password = formValues.password
     const passwordConfirm = formValues.confirmPassword
-    const username = formValues.userName
+    const userName = formValues.userName
 
     const handleChange = (e) => {
         setFormValues({ ...formValues, [e.target.name]: e.target.value })
@@ -28,14 +28,14 @@ export default function Register(props) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        if (username === "") {
+        if (userName === "") {
             alert('Please enter a user name')
         } else if (password.length < 7) {
             alert("Your password must be at least 7 characters long")
             console.log(password.length)
         } else if (password !== passwordConfirm) {
             alert("Your passwords do not match")
-        } else if (username && password === passwordConfirm && password.length >= 7) {
+        } else if (userName && password === passwordConfirm && password.length >= 7) {
             await RegisterUser({
                 userName: formValues.userName,
                 password: formValues.password
@@ -53,44 +53,48 @@ export default function Register(props) {
             <div className="card-overlay centered">
                 <form className="col" onSubmit={handleSubmit}>
                     <div className="input-wrapper">
-                        <input
-                            className='login-input'
-                            onChange={handleChange}
-                            name="userName"
-                            type="text"
-                            placeholder="Create your username here."
-                            value={formValues.userName}
-                            required
-                        />
-                    </div>
+                        <h2 className='login-title'>Create Account</h2>
+                        <div>
 
-                    <div className="input-wrapper">
-                        {/* <label htmlFor="password">Password</label> */}
-                        <input
-                        className='login-input'
-                            onChange={handleChange}
-                            type="password"
-                            name="password"
-                            placeholder='Now create a password.'
-                            value={formValues.password}
-                            required
-                        />
+                            <input
+                                className='login-input'
+                                onChange={handleChange}
+                                name="userName"
+                                type="text"
+                                placeholder="Create your userName here."
+                                value={formValues.userName}
+                                required
+                            />
+                        </div>
+
+                        <div className="input-wrapper">
+                            {/* <label htmlFor="password">Password</label> */}
+                            <input
+                                className='login-input'
+                                onChange={handleChange}
+                                type="password"
+                                name="password"
+                                placeholder='Now create a password.'
+                                value={formValues.password}
+                                required
+                            />
+                        </div>
+                        <div className="input-wrapper">
+                            {/* <label htmlFor="confirmPassword">Confirm Password</label> */}
+                            <input
+                                className='login-input'
+                                onChange={handleChange}
+                                type="password"
+                                name="confirmPassword"
+                                placeholder='Confirm your password.'
+                                value={formValues.confirmPassword}
+                                required
+                            />
+                        </div>
+                        <button type='submit' className='login-button'>
+                            Let's go!
+                        </button>
                     </div>
-                    <div className="input-wrapper">
-                        {/* <label htmlFor="confirmPassword">Confirm Password</label> */}
-                        <input
-                            className='login-input'
-                            onChange={handleChange}
-                            type="password"
-                            name="confirmPassword"
-                            placeholder='Confirm your password.'
-                            value={formValues.confirmPassword}
-                            required
-                        />
-                    </div>
-                    <button type='submit' className='login-button'>
-                        Let's go!
-                    </button>
                 </form>
             </div>
         </div>

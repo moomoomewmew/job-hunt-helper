@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 export default function LogIn(props) {
     const navigate = useNavigate()
-    const [formValues, setFormValues] = useState({ username: '', password: '' })
+    const [formValues, setFormValues] = useState({ userName: '', password: '' })
     const handleChange = (e) => {
         setFormValues({ ...formValues, [e.target.name]: e.target.value })
     }
@@ -14,10 +14,9 @@ export default function LogIn(props) {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const payload = await SignInUser(formValues)
-        setFormValues({ username: '', password: '' })
+        navigate(`/dashboard`)
         props.setAuthUser(payload)
         props.toggleAuthenticated(true)
-        navigate(`/dashboard`)
         alert('You\'ve successfully logged in!')
     }
 
@@ -29,16 +28,18 @@ export default function LogIn(props) {
                     <div className="input-wrapper">
                         <h2 className='login-title'>Login</h2>
                         <input
+                            className='login-input'
                             onChange={handleChange}
-                            name="username"
-                            type="username"
-                            placeholder="username"
-                            value={formValues.username}
+                            name="userName"
+                            type="userName"
+                            placeholder="Username"
+                            value={formValues.userName}
                             required
                         />
                     </div>
                     <div className="input-wrapper">
                         <input
+                            className='login-input'
                             onChange={handleChange}
                             type="password"
                             name="password"
@@ -47,7 +48,7 @@ export default function LogIn(props) {
                             required
                         />
                     </div>
-                    <button className='login-button' disabled={!formValues.username || !formValues.password}>
+                    <button className='login-button' disabled={!formValues.userName || !formValues.password}>
                         Sign In
                     </button>
                 </form>

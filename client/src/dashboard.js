@@ -12,7 +12,7 @@ export default function Dashboard(props) {
     // if (user) {
         return (
             <div>
-                {/* <h3>Hello, {user.username}!</h3> */}
+                {/* <h3>Hello, {user.userName}!</h3> */}
                 <h3>Hello, {user} !</h3>
 
 

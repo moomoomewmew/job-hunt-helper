@@ -5,7 +5,6 @@
     flex-direction: column;
     width: max-content;
     margin: auto;
-    flex: auto;
 }
 
 .login-input {

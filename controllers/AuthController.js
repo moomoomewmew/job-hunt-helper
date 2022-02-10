@@ -7,9 +7,10 @@ const Login = async (req, res) => {
             where: { userName: req.body.userName },
             raw: true
         });
+        console.log(user.password, req.body.password)
         if (
             user &&
-            (await middleware.comparePassword(user.passwordDigest, req.body.password))
+            (await middleware.comparePassword(user.password, req.body.password))
         ) {
             let payload = {
                 id: user.id,
@@ -28,7 +29,8 @@ const Register = async (req, res) => {
     try {
         const { password, userName } = req.body;
         let passwordDigest = await middleware.hashPassword(password);
-        const user = await User.create({ passwordDigest, userName });
+        console.log(password, passwordDigest)
+        const user = await User.create({ password:passwordDigest, userName });
         res.send(user);
     } catch (error) {
         throw error;
