@@ -7,7 +7,7 @@ const LandingPage = () => {
     
 
     return (
-        <div>
+        <div className='landing-box'>
             <div className='description'>
                 <h2>A managment system for your job hunt</h2>
                 <h4>Organize all of your job opportunities in one place</h4>

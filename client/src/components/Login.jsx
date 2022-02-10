@@ -1,4 +1,4 @@
-
+import '../styles/login.css'
 import React, { useState } from 'react'
 import { SignInUser } from '../services/Auth'
 import { Link, useNavigate } from 'react-router-dom'
@@ -23,7 +23,7 @@ export default function LogIn(props) {
 
 
     return (
-        <div className="rigister-form">
+        <div className="register-form">
             <div className="register-slip">
                 <form className="col" onSubmit={handleSubmit}>
                     <div className="input-wrapper">
@@ -47,7 +47,7 @@ export default function LogIn(props) {
                             required
                         />
                     </div>
-                    <button disabled={!formValues.username || !formValues.password}>
+                    <button className='login-button' disabled={!formValues.username || !formValues.password}>
                         Sign In
                     </button>
                 </form>

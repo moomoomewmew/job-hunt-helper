@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { RegisterUser } from '../services/Auth'
+import '../styles/login.css'
 
 
 const iState = {
@@ -48,17 +49,16 @@ export default function Register(props) {
     }
 
     return (
-        <div className="register-form">
+        <div className="register-slip">
             <div className="card-overlay centered">
                 <form className="col" onSubmit={handleSubmit}>
-                    <h2 className='login-title'>Create Account</h2>
-
                     <div className="input-wrapper">
                         <input
+                            className='login-input'
                             onChange={handleChange}
                             name="userName"
                             type="text"
-                            placeholder="Username"
+                            placeholder="Create your username here."
                             value={formValues.userName}
                             required
                         />
@@ -67,10 +67,11 @@ export default function Register(props) {
                     <div className="input-wrapper">
                         {/* <label htmlFor="password">Password</label> */}
                         <input
+                        className='login-input'
                             onChange={handleChange}
                             type="password"
                             name="password"
-                            placeholder='Password'
+                            placeholder='Now create a password.'
                             value={formValues.password}
                             required
                         />
@@ -78,16 +79,17 @@ export default function Register(props) {
                     <div className="input-wrapper">
                         {/* <label htmlFor="confirmPassword">Confirm Password</label> */}
                         <input
+                            className='login-input'
                             onChange={handleChange}
                             type="password"
                             name="confirmPassword"
-                            placeholder='Confirm Passward'
+                            placeholder='Confirm your password.'
                             value={formValues.confirmPassword}
                             required
                         />
                     </div>
-                    <button type='submit'>
-                        Register
+                    <button type='submit' className='login-button'>
+                        Let's go!
                     </button>
                 </form>
             </div>
