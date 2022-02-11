@@ -8,7 +8,7 @@ import Client from './services/api';
 
 export default function Dashboard({ authUser, ...props }) {
     console.log(authUser)
-    // const [opportunities, setOpportunities] = useState()
+    const [opportunities, setOpportunities] = useState()
 
 
     if (props.authenticated) {

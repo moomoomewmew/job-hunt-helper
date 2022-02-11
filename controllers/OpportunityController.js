@@ -2,10 +2,21 @@ const { User, Opportunity } = require('../models');
 
 const GetAllOpportunities = async (req, res) => {
     try {
-        const opportunities = await Opportunity.findAll();
+        console.log(req.params)
+        const userName = req.query.userName
+
+        if (!userName) {
+            throw new Error
+        }
+        console.log(userName)
+        const user = await User.findOne({ where: { userName: userName } })
+        console.log(user)
+        const opportunities = await Opportunity.findAll({where: {userId:user.id}});
+        console.log(opportunities)
         res.send(opportunities);
     } catch (error) {
-        throw error;
+        res.status(400)
+        res.end()
     }
 };
 
@@ -16,7 +27,7 @@ const GetAllOpportunitiesWithAllInfo = async (req, res) => {
             include: [
                 {
                     model: User,
-                    as: 'attendees',
+                    as: 'opportunities',
                     through: { attributes: [] }
                 },
                 { model: User, as: 'owner' }
