@@ -1,3 +1,7 @@
+.welcome {
+    margin: .75em;
+}
+
 .dashboard-box {
     background-color: #EBE8FE;
     width: 90vw;
@@ -10,8 +14,41 @@
     flex-direction: column;
 }
 .dashboard-box-2 {
-    display: grid;
+    display: flex;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     width: 100%;
-    border: 2px dotted black;
+    /* border: 2px dotted black; */
+}
+
+.stage-box {
+    display:flex;
+    flex-direction: column;
+    border: 1px solid rgb(82, 82, 82);
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    margin: 1em;
+    align-items: center;
+    overflow: hidden;
+}
+
+.stage-title {
+    background-color: rgb(82, 82, 82);
+    width: 100%;
+    margin-top: 0;
+    text-align: center;
+    padding: .5em 1em;
+    color: white;
+}
+
+.opportunity-button {
+    border-radius: 10px;
+    background-color: #white;
+    transition: 0.4s;
+    border: 2px solid #black;
+}
+
+.opportunity-button:hover {
+    border-radius: 15px;
+    background-color: #e2e7c3;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import Opportunity from './Opportunity';
-import '../styles/stage.css'
+import '../styles/dashboard.css'
 
 export default function Stage(props) {
 console.log(props)
@@ -11,3 +11,4 @@ console.log(props)
         </div>
     )
 }
+

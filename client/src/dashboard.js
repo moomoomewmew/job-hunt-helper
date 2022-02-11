@@ -28,7 +28,7 @@ export default function Dashboard({ authUser, ...props }) {
     if (props.authenticated) {
         return (
             <div className='dashboard-box'>
-                <h1>Welcome, {authUser.userName}!</h1>
+                <h1 className='welcome'>Welcome, {authUser.userName}!</h1>
                 <div className='dashboard-box-2'>
                 <Stage name="Wishlist" opportunities={opportunities.filter(opp => opp.stage === 'wishlist')} onEdit={setOpportunities} />
                 <Stage name="Applied" opportunities={opportunities.filter(opp => opp.stage === 'applied')} onEdit={setOpportunities} />
