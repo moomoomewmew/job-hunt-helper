@@ -7,12 +7,15 @@ const Navbar = (props) => {
     const setUser = props.setUser
     const isLoggedIn = props.isLoggedIn
     const toggleLogin = props.toggleLogin
-    if (isLoggedIn) {
+    const authenticated = props.authenticated
+
+    if (authenticated) {
         return (
             <nav className="nav-bar">
                 <div><Link to="/" className="logo">Hunt Helpr</Link></div>
                 <div className="nav-right"><Link to="/dashboard">Dashboard</Link>
-                    <Link to="/"><p onClick={() => props.toggleLogin(false)}>Log out from {isLoggedIn}</p></Link></div>
+                    <Link className="login-button" onClick={props.handleLogOut} to="/">Logout</Link>
+                </div>
             </nav>
         )
     } else {

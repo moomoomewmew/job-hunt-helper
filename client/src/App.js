@@ -1,36 +1,84 @@
-import React, { useState } from 'react'
-import './styles/App.css'
-import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import './styles/App.css';
+import Register from './components/CreateAccount';
+import { Routes, Route } from 'react-router-dom';
+import { CheckSession } from './services/Auth';
+import axios from 'axios';
+import { BASE_URL } from './globals/index';
 import Navbar from './components/Navbar'
-import LandingPage from './LandingPage'
-import Dashboard from './dashboard'
-import CreateAccount from './components/CreateAccount'
-import Login from './components/Login'
-import EditPage from './components/EditPage'
-
-
+import Landingpage from './LandingPage'
+import LogIn from './components/Login';
+import Dashboard from './dashboard';
 
 function App() {
+  const [authenticated, toggleAuthenticated] = useState(false);
+  const [user, setUser] = useState(null);
+  const [authUser, setAuthUser] = useState({});
+  const [loading, setLoading] = useState(true);
 
-  const [user, setUser] = useState(null)
-  const [isLoggedIn, toggleLogin] = useState(false)
-  const [ride, setRide] = useState({})
+  const checkToken = async () => {
+    const user = await CheckSession();
+    setUser(user);
+    toggleAuthenticated(true);
+  };
+  const getAuthUser = async () => {
+    const id = localStorage.getItem('id');
+    axios.get(`${BASE_URL}/users/${id}`).then((res) => {
+      setAuthUser(res.data);
+      setLoading(false);
+    });
+  };
 
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      checkToken();
+      getAuthUser();
+    }
+  }, []);
+
+  const handleLogOut = () => {
+    setUser(null);
+    toggleAuthenticated(false);
+    localStorage.clear();
+  };
+  // if (loading) {
+  //   return <div> loading...</div>;
+  // }
   return (
     <div className="App">
-      <header className="App-header">
-        <Navbar isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} setUser={setUser} />
+      <Navbar
+        user={authUser}
+        authenticated={authenticated}
+        handleLogOut={handleLogOut}
+      />
 
-      </header>
-        <Routes>
-          <Route path='/dashboard' element={<Dashboard setRide={setRide} user={user} />} />
-          <Route path='/newaccount' element={<CreateAccount isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} setUser={setUser} user={user} />} />
-          <Route path='/login' element={<Login isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} setUser={setUser} />} />
-          <Route path='/edit' element={<EditPage ride={ride} />} />
-          <Route exact path='/' element={<LandingPage setRide={setRide} user={user} />} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<Landingpage />} />
+        <Route
+          path="/login"
+          element={
+            <LogIn
+              setAuthUser={setAuthUser}
+              authUser={authUser}
+              toggleAuthenticated={toggleAuthenticated}
+              authenticated={authenticated}
+            />
+          }
+        />
+        <Route path="/newaccount" element={<Register />} />
+        <Route
+          path="/dashboard"
+          element={
+            <Dashboard
+              authUser={authUser}
+              checkToken={checkToken}
+              setUser={setUser}
+            />
+          }
+        />
+      </Routes>
     </div>
-  )
+  );
 }
-
 export default App;
