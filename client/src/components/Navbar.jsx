@@ -4,9 +4,6 @@ import '../styles/navbar.css'
 
 const Navbar = (props) => {
     console.log(props)
-    const setUser = props.setUser
-    const isLoggedIn = props.isLoggedIn
-    const toggleLogin = props.toggleLogin
     const authenticated = props.authenticated
 
     if (authenticated) {
@@ -14,7 +11,7 @@ const Navbar = (props) => {
             <nav className="nav-bar">
                 <div><Link to="/" className="logo">Hunt Helpr</Link></div>
                 <div className="nav-right"><Link to="/dashboard">Dashboard</Link>
-                    <Link className="login-button" onClick={props.handleLogOut} to="/">Logout</Link>
+                    <Link  onClick={props.handleLogOut} to="/">Logout</Link>
                 </div>
             </nav>
         )
