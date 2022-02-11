@@ -5,6 +5,7 @@ import { Link, useNavigate, Redirect } from 'react-router-dom';
 import { BASE_URL } from "./globals/index";
 import './styles/dashboard.css'
 import Client from './services/api';
+import Stage from './components/Stage';
 
 export default function Dashboard({ authUser, ...props }) {
     console.log(authUser)
@@ -28,6 +29,11 @@ export default function Dashboard({ authUser, ...props }) {
         return (
             <div className='dashboard-box'>
                 <h1>Welcome, {authUser.userName}!</h1>
+                <Stage name="Wishlist" opportunities={opportunities.filter(opp => opp.stage === 'wishlist')} onEdit={setOpportunities} />
+                <Stage name="Applied" opportunities={opportunities.filter(opp => opp.stage === 'applied')} onEdit={setOpportunities} />
+                <Stage name="Interview" opportunities={opportunities.filter(opp => opp.stage === 'interview')} onEdit={setOpportunities} />
+                <Stage name="Offer" opportunities={opportunities.filter(opp => opp.stage === 'offer')} onEdit={setOpportunities} />
+                <Stage name="Rejected" opportunities={opportunities.filter(opp => opp.stage === 'rejected')} onEdit={setOpportunities} />
             </div>
         )
     } else {
