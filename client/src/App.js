@@ -71,6 +71,7 @@ function App() {
           path="/dashboard"
           element={
             <Dashboard
+              authenticated={authenticated}
               authUser={authUser}
               checkToken={checkToken}
               setUser={setUser}
