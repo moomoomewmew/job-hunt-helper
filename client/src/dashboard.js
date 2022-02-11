@@ -8,8 +8,21 @@ import Client from './services/api';
 
 export default function Dashboard({ authUser, ...props }) {
     console.log(authUser)
-    const [opportunities, setOpportunities] = useState()
+    const [opportunities, setOpportunities] = useState([])
 
+    useEffect( () => {
+        if (!props.authenticated || !authUser.userName) {
+            console.log('not logged in')
+            return
+        }
+        Client.get(`/api/opportunities?userName=${authUser.userName}`)
+        .then(opportunities => {
+            console.log(authUser.userName, opportunities)
+            setOpportunities(opportunities.data)
+        })
+    }, [authUser, props.authenticated])
+
+    console.log(opportunities)
 
     if (props.authenticated) {
         return (
