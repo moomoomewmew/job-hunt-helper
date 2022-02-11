@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import '../styles/navbar.css'
 
 const Navbar = (props) => {
-    console.log(props)
     const authenticated = props.authenticated
 
     if (authenticated) {

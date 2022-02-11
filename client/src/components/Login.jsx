@@ -15,8 +15,11 @@ export default function LogIn(props) {
         e.preventDefault()
         const payload = await SignInUser(formValues)
         navigate(`/dashboard`)
+        props.setAuthUser(payload)
         props.toggleAuthenticated(true)
         alert('You\'ve successfully logged in!')
+        console.log(props)
+        console.log(payload)
     }
 
 

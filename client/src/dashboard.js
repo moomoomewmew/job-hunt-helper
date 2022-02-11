@@ -10,15 +10,6 @@ export default function Dashboard({ authUser, ...props }) {
 
     // const navigate = useNavigate()
     // let userId = authUser.id
-    // let userDetailsArray = [];
-
-    // const [userDetails, setUserDetails] = useState(userDetailsArray);
-
-    // const getUserDetails = async (user) => {
-    //     const response = await axios.get(`${BASE_URL}/users/info/${authUser.id}`);
-    //     setUserDetails(response.data);
-
-    // };
 
     // useEffect(() => {
     //     CheckSession()
@@ -28,7 +19,7 @@ export default function Dashboard({ authUser, ...props }) {
 console.log(props)
     return (
         <div className='dashboard-box'>
-            <h1>hi!</h1>
+            <h1>Welcome, {authUser.userName}!</h1>
         </div>
     )
 
