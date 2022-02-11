@@ -6,4 +6,12 @@
     border-bottom: 5px solid lightgray;
     border-right: 5px solid lightgray;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.dashboard-box-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    width: 100%;
+    border: 2px dotted black;
 }

@@ -29,11 +29,13 @@ export default function Dashboard({ authUser, ...props }) {
         return (
             <div className='dashboard-box'>
                 <h1>Welcome, {authUser.userName}!</h1>
+                <div className='dashboard-box-2'>
                 <Stage name="Wishlist" opportunities={opportunities.filter(opp => opp.stage === 'wishlist')} onEdit={setOpportunities} />
                 <Stage name="Applied" opportunities={opportunities.filter(opp => opp.stage === 'applied')} onEdit={setOpportunities} />
                 <Stage name="Interview" opportunities={opportunities.filter(opp => opp.stage === 'interview')} onEdit={setOpportunities} />
                 <Stage name="Offer" opportunities={opportunities.filter(opp => opp.stage === 'offer')} onEdit={setOpportunities} />
                 <Stage name="Rejected" opportunities={opportunities.filter(opp => opp.stage === 'rejected')} onEdit={setOpportunities} />
+                </div>
             </div>
         )
     } else {
