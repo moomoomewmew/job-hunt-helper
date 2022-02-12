@@ -9,6 +9,7 @@ import Navbar from './components/Navbar'
 import Landingpage from './LandingPage'
 import LogIn from './components/Login';
 import Dashboard from './dashboard';
+import OpportunityEdit from './components/OpportunityEdit';
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false);
@@ -71,6 +72,17 @@ function App() {
           path="/dashboard"
           element={
             <Dashboard
+              authenticated={authenticated}
+              authUser={authUser}
+              checkToken={checkToken}
+              setUser={setUser}
+            />
+          }
+        />
+        <Route
+          path="/opportunityedit"
+          element={
+            <OpportunityEdit
               authenticated={authenticated}
               authUser={authUser}
               checkToken={checkToken}

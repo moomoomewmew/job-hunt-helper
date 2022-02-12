@@ -4,8 +4,6 @@ import './styles/landingpage.css'
 
 const LandingPage = () => {
 
-    
-
     return (
         <div className='landing-box'>
             <div className='description'>
