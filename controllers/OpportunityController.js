@@ -92,6 +92,14 @@ const UpdateOpportunityDetails = async (req, res) => {
         throw error;
     }
 };
+const GetOpportunityDetails = async (req, res) => {
+    try {
+        let opportunity = await Opportunity.findByPk(req.params.id);
+        res.send(opportunity)
+    } catch (error) {
+        throw error;
+    }
+};
 
 const DeleteOpportunity = async (req, res) => {
     try {
@@ -112,4 +120,5 @@ module.exports = {
     CreateOpportunity,
     UpdateOpportunityDetails,
     DeleteOpportunity,
+    GetOpportunityDetails
 };

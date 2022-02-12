@@ -6,6 +6,7 @@ Router.get('/info', controller.GetAllOpportunitiesWithAllInfo);
 Router.get('/info/:id', controller.GetOpportunityByIdWithAllInfo);
 Router.post('/', controller.CreateOpportunity);
 Router.put('/:id', controller.UpdateOpportunityDetails);
+Router.get('/:id', controller.GetOpportunityDetails);
 Router.delete('/:id', controller.DeleteOpportunity);
 
 

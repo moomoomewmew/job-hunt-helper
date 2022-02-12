@@ -1,26 +1,17 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Client from '../services/api';
 
-export default function Opportunity(props) {
+export default function Opportunity({opp}) {
 
-    const [opportunity, setOpportunity] = useState('')
 
-    const editOpportunity = async (e) => {
-        e.preventDefault()
-        console.log(props.opp.id)
-        const opportunityId = e.target.id;
-        console.log(opportunityId)
-        const res = await axios.get(`/api/opportunities/info/${props.opp.id}`)
-        Navigate('/opportunityedit/:id')
+    const navigate = useNavigate()
 
-    }
-    // console.log(props)
     return (
         <div >
-            <button id={props.opp.id} className='opportunity-button' onClick={editOpportunity}>
-            <h3>Job title: {props.opp.jobTitle}</h3>
-            <h3>Company: {props.opp.company}</h3>
+            <button id={opp.id} className='opportunity-button' onClick={() => navigate(`/opportunity/${opp.id}/edit`)}>
+            <h3>Job title: {opp.jobTitle}</h3>
+            <h3>Company: {opp.company}</h3>
             </button>
         </div>
     )

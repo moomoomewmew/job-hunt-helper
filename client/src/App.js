@@ -10,6 +10,7 @@ import Landingpage from './LandingPage'
 import LogIn from './components/Login';
 import Dashboard from './dashboard';
 import OpportunityEdit from './components/OpportunityEdit';
+import CreateOpportunity from './components/CreateOpportunity';
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false);
@@ -80,9 +81,20 @@ function App() {
           }
         />
         <Route
-          path="/opportunityedit"
+          path="/opportunity/:id/edit"
           element={
             <OpportunityEdit
+              authenticated={authenticated}
+              authUser={authUser}
+              checkToken={checkToken}
+              setUser={setUser}
+            />
+          }
+        />
+        <Route
+          path="/createopportunity"
+          element={
+            <CreateOpportunity
               authenticated={authenticated}
               authUser={authUser}
               checkToken={checkToken}

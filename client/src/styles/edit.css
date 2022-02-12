@@ -1,0 +1,39 @@
+.form{
+    margin: 0 auto;
+    width: 80vw;
+    border: 3px dotted white;
+}
+
+.edit-input {
+    border-radius: .5em;
+    width: 10em;
+    height: 2em;
+    margin: 2em 0;
+    text-align: center;
+    font-size: 1.5em;
+    font-family: 'Roboto', sans-serif;    
+    padding: -1em;   
+    color:black;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+}
+.note-input {
+    width: 20vw;
+}
+
+label {
+    color: white;
+}
+
+.position-at-company {
+    color: white;
+}
+
+.label-input-box {
+    display: flex;
+    flex-direction: column;
+
+}
