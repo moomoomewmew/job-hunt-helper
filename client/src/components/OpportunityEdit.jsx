@@ -14,6 +14,7 @@ export default function OpportunityEdit(props) {
     const [jobPostURL, setJobPostURL] = useState('')
     const [companyURL, setCompanyURL] = useState('')
     const [dateApplied, setDateApplied] = useState('')
+    const [notes, setNotes] = useState('')
 
     const saveJobTitle = (e) => {
         setJobTitle(e.target.value)
@@ -45,6 +46,9 @@ export default function OpportunityEdit(props) {
     const saveDateApplied = (e) => {
         setDateApplied(e.target.value)
     }
+    const saveNotes = (e) => {
+        setNotes(e.target.value)
+    }
 
 
     const handleSubmit = async (e) => {
@@ -66,82 +70,93 @@ export default function OpportunityEdit(props) {
         <div className="form">
             <h1>Opportunity at { }</h1>
             <form onSubmit={handleSubmit}>
+                <div className='row-1'>
+                    <input
+                        type="text"
+                        value={jobTitle}
+                        placeholder="Job Title"
+                        id="job-title"
+                        onChange={saveJobTitle}
+                    />
+                    <input
+                        type="text"
+                        value={company}
+                        placeholder="Company"
+                        id="company"
+                        onChange={saveCompany}
+                    />
+                    <input
+                        type="text"
+                        value={payRange}
+                        placeholder="Pay Range"
+                        id="pay-range"
+                        onChange={savePayRange}
+                    />
+                    <select
+                        value={stage}
+                        name="stage"
+                        id="stage"
+                        onChange={saveStage}>
+                        <option value="-">-</option>
+                        <option value="wishlist">wishlist</option>
+                        <option value="applied">applied</option>
+                        <option value="interview">interview</option>
+                        <option value="offer">offer</option>
+                        <option value="rejected">rejected</option>
+                    </select>
+                </div>
+                <div className='row-2'>
                 <input
                     type="text"
-                    value={jobTitle}
-                    placeholder="Job Title"
-                    id="jobtitle"
-                    onChange={saveJobTitle}
+                    value={location}
+                    placeholder="Location"
+                    id="location"
+                    onChange={saveLocation}
                 />
                 <input
                     type="text"
-                    value={stage}
-                    placeholder="Stage"
-                    id="stage"
-                    onChange={saveStage}
+                    value={pointOfContact}
+                    placeholder="Point Of Contact"
+                    id="point-of-contact"
+                    onChange={savePointOfContact}
                 />
                 <input
                     type="text"
-                    value={company}
-                    placeholder="Company"
-                    id="company"
-                    onChange={saveCompany}
+                    value={phoneNumber}
+                    placeholder="Phone Number"
+                    id="phone-number"
+                    onChange={savePhoneNumber}
+                />
+                </div>
+                <div className='row-3'>
+                <input
+                    type="text"
+                    value={jobPostURL}
+                    placeholder="Job Post URL"
+                    id="job-post-url"
+                    onChange={saveJobPostURL}
                 />
                 <input
                     type="text"
-                    value={stage}
-                    placeholder="Stage"
-                    id="stage"
-                    onChange={saveStage}
+                    value={companyURL}
+                    placeholder="Company URL"
+                    id="company-url"
+                    onChange={saveCompanyURL}
                 />
                 <input
                     type="text"
-                    value={stage}
-                    placeholder="Stage"
-                    id="stage"
-                    onChange={saveStage}
+                    value={dateApplied}
+                    placeholder="Date Applied"
+                    id="date-applied"
+                    onChange={saveDateApplied}
                 />
+                </div>
                 <input
                     type="text"
-                    value={stage}
-                    placeholder="Stage"
-                    id="stage"
-                    onChange={saveStage}
-                />
-                <input
-                    type="text"
-                    value={stage}
-                    placeholder="Stage"
-                    id="stage"
-                    onChange={saveStage}
-                />
-                <input
-                    type="text"
-                    value={stage}
-                    placeholder="Stage"
-                    id="stage"
-                    onChange={saveStage}
-                />
-                <input
-                    type="text"
-                    value={stage}
-                    placeholder="Stage"
-                    id="stage"
-                    onChange={saveStage}
-                />
-                <input
-                    type="text"
-                    value={stage}
-                    placeholder="Stage"
-                    id="stage"
-                    onChange={saveStage}
-                />
-                <input
-                    type="text"
-                    value={stage}
-                    placeholder="Stage"
-                    id="stage"
-                    onChange={saveStage}
+                    value={notes}
+                    placeholder="Notes"
+                    id="notes"
+                    onChange={saveNotes}
                 />
 
                 <button type="submit" >Update Opportunity</button>
