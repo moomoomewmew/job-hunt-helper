@@ -22,13 +22,13 @@ export default function LogIn(props) {
         console.log(payload)
     }
 
-
     return (
-        <div className="register-form">
-            <div className="register-slip">
-                <form className="col" onSubmit={handleSubmit}>
-                    <div className="input-wrapper">
-                        <h2 className='login-title'>Login</h2>
+
+        <div className="register-slip">
+            <form className="col" onSubmit={handleSubmit}>
+                <div className="input-wrapper">
+                    <h2 className='login-title'>Login</h2>
+                    <div>
                         <input
                             className='login-input'
                             onChange={handleChange}
@@ -39,6 +39,7 @@ export default function LogIn(props) {
                             required
                         />
                     </div>
+
                     <div className="input-wrapper">
                         <input
                             className='login-input'
@@ -53,9 +54,10 @@ export default function LogIn(props) {
                     <button className='login-button' disabled={!formValues.userName || !formValues.password}>
                         Sign In
                     </button>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
+
     )
 }
 

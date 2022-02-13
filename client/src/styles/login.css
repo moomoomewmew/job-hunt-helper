@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200;700&family=Roboto:wght@500&display=swap');
 
-.register-slip {
-    display: flex;
-    flex-direction: column;
-    width: max-content;
-    margin: auto;
-}
 
 .login-input {
     border-radius: 3em;
@@ -17,6 +11,7 @@
     font-family: 'Roboto', sans-serif;    
     padding: -1em;   
     color:black;
+    
 }
 
 .login-title {
@@ -43,9 +38,9 @@
 }
 
 .input-wrapper {
-display:flex;
-flex-direction: column;
-margin: 0 auto;
+    display:flex;
+    flex-direction: column;
+    margin: 0 auto;
 }
 
 .login-title {
@@ -53,4 +48,9 @@ margin: 0 auto;
     font-family: 'Lobster', cursive;
     font-size: 2.5em;
     margin: auto;
+}
+
+.register-slip {
+    margin: auto;
+
 }
