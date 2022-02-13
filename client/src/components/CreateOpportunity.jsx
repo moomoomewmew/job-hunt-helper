@@ -1,179 +1,193 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import '../styles/edit.css'
+import Client from '../services/api'
+
+
 export default function CreateOpportunity(props) {
+    console.log(props)
+    const navigate = useNavigate()
 
-    const [jobTitle, setJobTitle] = useState('')
-    const [stage, setStage] = useState('')
-    const [company, setCompany] = useState('')
-    const [payRange, setPayRange] = useState('')
-    const [location, setLocation] = useState("")
-    const [pointOfContact, setPointOfContact] = useState('')
-    const [phoneNumber, setPhoneNumber] = useState('')
-    const [jobPostURL, setJobPostURL] = useState('')
-    const [companyURL, setCompanyURL] = useState('')
-    const [dateApplied, setDateApplied] = useState('')
-    const [notes, setNotes] = useState('')
-
-    const saveJobTitle = (e) => {
-        setJobTitle(e.target.value)
-    }
-    const saveStage = (e) => {
-        setStage(e.target.value)
-    }
-    const saveCompany = (e) => {
-        setCompany(e.target.value)
-    }
-    const savePayRange = (e) => {
-        setPayRange(e.target.value)
-    }
-    const saveLocation = (e) => {
-        setLocation(e.target.value)
-    }
-    const savePointOfContact = (e) => {
-        setPointOfContact(e.target.value)
-    }
-    const savePhoneNumber = (e) => {
-        setPhoneNumber(e.target.value)
-    }
-    const saveJobPostURL = (e) => {
-        setJobPostURL(e.target.value)
-    }
-    const saveCompanyURL = (e) => {
-        setCompanyURL(e.target.value)
-    }
-    const saveDateApplied = (e) => {
-        setDateApplied(e.target.value)
-    }
-    const saveNotes = (e) => {
-        setNotes(e.target.value)
-    }
+    const [opportunity, setOpportunity] = useState({
+        jobTitle: '',
+        stage: '',
+        company: '',
+        payRange: '',
+        location: '',
+        pointOfContact: '',
+        phoneNumber: '',
+        jobPostURL: '',
+        companyURL: '',
+        dateApplied: '',
+    })
 
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const res = await axios.put(`/api/opportunity/${props.opp.id}`,
+        const res = await Client.post(`/api/opportunities`,
             {
-                jobTitle,
-                stage
+                userId: props.user.id,
+                jobTitle: document.getElementById('jobTitle').value,
+                stage: document.getElementById('stage').value,
+                company: document.getElementById('company').value,
+                payRange: document.getElementById('payRange').value,
+                location: document.getElementById('location').value,
+                pointOfContact: document.getElementById('pointOfContact').value,
+                phoneNumber: document.getElementById('phoneNumber').value,
+                jobPostURL: document.getElementById('jobPostURL').value,
+                companyURL: document.getElementById('companyURL').value,
+                dateApplied: document.getElementById('dateApplied').value,
+                // notes
             }).then(() => {
-                alert('Your opportunity has successfully been recorded!')
+                alert('Your opportunity has successfully been added!')
+                navigate('/dashboard')
             })
     }
 
-    // if (Object.keys(props.opp).length === 0) {
-    //     return (<div>did not select a ride to edit!</div>)
-    // }
-
     return (
         <div className="form">
-            <h1>Opportunity at { props.op}</h1>
+            <h1 className='position-at-company'>{opportunity.jobTitle} at {opportunity.company}</h1>
             <form onSubmit={handleSubmit}>
-                <div>
+                <div className='input-container'>
                     <div className='row-1'>
-                        <input
-                            className='edit-input'
-                            type="text"
-                            value={jobTitle}
-                            placeholder="Job Title"
-                            id="job-title"
-                            onChange={saveJobTitle}
-                        />
-                        <input
-                            className='edit-input'
-                            type="text"
-                            value={company}
-                            placeholder="Company"
-                            id="company"
-                            onChange={saveCompany}
-                        />
-                        <input
-                            className='edit-input'
-                            type="text"
-                            value={payRange}
-                            placeholder="Pay Range"
-                            id="pay-range"
-                            onChange={savePayRange}
-                        />
-                        <select
-                            className='edit-input'
-                            value={stage}
-                            name="stage"
-                            id="stage"
-                            onChange={saveStage}>
-                            <option value="-">-</option>
-                            <option value="wishlist">wishlist</option>
-                            <option value="applied">applied</option>
-                            <option value="interview">interview</option>
-                            <option value="offer">offer</option>
-                            <option value="rejected">rejected</option>
-                        </select>
+                        <div className="label-input-box">
+                            <label htmlFor="jobTitle">Job Title</label>
+                            <input
+                                className='edit-input'
+                                type="text"
+                                defaultValue={opportunity.jobTitle}
+                                name="jobTitle"
+                                id='jobTitle'
+                            />
+                        </div>
+                        <div className="label-input-box">
+                            <label htmlFor="company">Company</label>
+                            <input
+                                className='edit-input'
+                                type="text"
+                                defaultValue={opportunity.company}
+                                name="company"
+                                id='company'
+                            />
+                        </div>
+                        <div className="label-input-box">
+                            <label htmlFor='payRange'>Pay Range</label>
+                            <input
+                                className='edit-input'
+                                type="text"
+                                defaultValue={opportunity.payRange}
+                                placeholder="Pay Range"
+                                name="payRange"
+                                id='payRange'
+                            />
+                        </div>
                     </div>
                     <div className='row-2'>
-                        <input
-                            className='edit-input'
-                            type="text"
-                            value={location}
-                            placeholder="Location"
-                            id="location"
-                            onChange={saveLocation}
-                        />
-                        <input
-                            className='edit-input'
-                            type="text"
-                            value={pointOfContact}
-                            placeholder="Point Of Contact"
-                            id="point-of-contact"
-                            onChange={savePointOfContact}
-                        />
-                        <input
-                            className='edit-input'
-                            type="text"
-                            value={phoneNumber}
-                            placeholder="Phone Number"
-                            id="phone-number"
-                            onChange={savePhoneNumber}
-                        />
+                        <div className="label-input-box">
+                            <label>Location</label>
+                            <input
+                                className='edit-input'
+                                type="text"
+                                defaultValue={opportunity.location}
+                                name="location"
+                                id='location'
+                            />
+                        </div>
+                        <div className="label-input-box">
+                            <label>Point Of Contact</label>
+                            <input
+                                className='edit-input'
+                                type="text"
+                                defaultValue={opportunity.pointOfContact}
+                                name="pointOfContact"
+                                id="pointOfContact"
+                            />
+                        </div>
+                        <div className="label-input-box">
+                            <label>Phone Number</label>
+                            <input
+                                className='edit-input'
+                                type="text"
+                                defaultValue={opportunity.phoneNumber}
+                                name="phoneNumber"
+                                id="phoneNumber"
+                            />
+                        </div>
                     </div>
                     <div className='row-3'>
-                        <input
-                            className='edit-input'
-                            type="text"
-                            value={jobPostURL}
-                            placeholder="Job Post URL"
-                            id="job-post-url"
-                            onChange={saveJobPostURL}
-                        />
-                        <input
-                            className='edit-input'
-                            type="text"
-                            value={companyURL}
-                            placeholder="Company URL"
-                            id="company-url"
-                            onChange={saveCompanyURL}
-                        />
-                        <input
-                            className='edit-input'
-                            type="text"
-                            value={dateApplied}
-                            placeholder="Date Applied"
-                            id="date-applied"
-                            onChange={saveDateApplied}
-                        />
+                        <div className="label-input-box">
+                            <label>Job Post URL</label>
+                            <input
+                                className='edit-input'
+                                type="text"
+                                defaultValue={opportunity.jobPostURL}
+                                name="jobPostURL"
+                                id='jobPostURL'
+                            />
+                        </div>
+                        <div className="label-input-box">
+                            <label>Company URL</label>
+                            <input
+                                className='edit-input'
+                                type="text"
+                                defaultValue={opportunity.companyURL}
+                                name="companyURL"
+                                id="companyURL"
+                            />
+                        </div>
+                        <div className="label-input-box">
+                            <label>Date Applied</label>
+                            <input
+                                className='edit-input'
+                                type="text"
+                                defaultValue={opportunity.dateApplied}
+                                name="dateApplied"
+                                id="dateApplied"
+                            />
+                        </div>
                     </div>
-                    <button type="submit" >Update Opportunity</button>
                 </div>
-                <input
-                    className='note-input'
-                    type="text"
-                    value={notes}
-                    placeholder="Notes"
-                    id="notes"
-                    onChange={saveNotes}
-                />
-
-                <p>{alert}</p>
+                <div className='notes-and-buttons'>
+                    <div className='notes-label'>
+                        <label htmlFor="notes">Notes</label>
+                    </div>
+                    <input
+                        className='note-input'
+                        type="text"
+                        defaultValue={opportunity.notes}
+                        placeholder='Notes'
+                        name="notes"
+                        id='notes'
+                    />
+                    <div className='button-box'>
+                        <div className="stage-label-and-dropdown">
+                            <label htmlFor="stage">Stage
+                                <select
+                                    className='edit-input'
+                                    name="stage"
+                                    id="stage"
+                                    onChange={(e) => {
+                                        console.log('onChange')
+                                        const stage = e.target.value;
+                                        const updated = { ...opportunity, stage }
+                                        console.log(updated, e.target)
+                                        setOpportunity(opportunity)
+                                    }}
+                                >
+                                    <option value="-">-</option>
+                                    <option value="wishlist">wishlist</option>
+                                    <option value="applied">applied</option>
+                                    <option value="interview">interview</option>
+                                    <option value="offer">offer</option>
+                                    <option value="rejected">rejected</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div className='update-and-delete-buttons'>
+                            <button className='these-buttons' type="submit" >Add Opportunity</button>
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
     )

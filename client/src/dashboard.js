@@ -10,6 +10,7 @@ import Stage from './components/Stage';
 export default function Dashboard({ authUser, ...props }) {
     console.log(authUser)
     const [opportunities, setOpportunities] = useState([])
+    const navigate = useNavigate()
 
     useEffect(() => {
         if (!props.authenticated || !authUser.userName) {

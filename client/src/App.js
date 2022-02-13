@@ -18,6 +18,7 @@ function App() {
   const [authUser, setAuthUser] = useState({});
   const [loading, setLoading] = useState(true);
 
+
   const checkToken = async () => {
     const user = await CheckSession();
     setUser(user);
@@ -95,6 +96,7 @@ function App() {
           path="/createopportunity"
           element={
             <CreateOpportunity
+              user={authUser}
               authenticated={authenticated}
               authUser={authUser}
               checkToken={checkToken}
