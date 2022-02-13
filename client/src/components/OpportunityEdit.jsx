@@ -53,9 +53,16 @@ export default function OpportunityEdit() {
 
     }
 
+    const handleAddInterview = () => {
+        navigate('/addinterview')
+    }
+
     return (
         <div className="form">
-            <h1 className='position-at-company'>{opportunity.jobTitle} at {opportunity.company}</h1>
+            <div className='welcome-and-interview-button'>
+                <h1 className='position-at-company'>{opportunity.jobTitle} at {opportunity.company}</h1>
+                <button className='add-interview-button' onClick={handleAddInterview}>+ add interview</button>
+            </div>
             <form onSubmit={handleSubmit}>
                 <div className='input-container'>
                     <div className='row-1'>

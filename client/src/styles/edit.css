@@ -111,3 +111,10 @@ label {
     border-radius: 1em;
     
 }
+
+.welcome-and-interview-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 2px dotted rgb(226, 27, 209);
+}

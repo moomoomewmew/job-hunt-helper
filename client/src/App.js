@@ -11,6 +11,7 @@ import LogIn from './components/Login';
 import Dashboard from './dashboard';
 import OpportunityEdit from './components/OpportunityEdit';
 import CreateOpportunity from './components/CreateOpportunity';
+import AddInterview from './components/AddInterview';
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false);
@@ -96,6 +97,18 @@ function App() {
           path="/createopportunity"
           element={
             <CreateOpportunity
+              user={authUser}
+              authenticated={authenticated}
+              authUser={authUser}
+              checkToken={checkToken}
+              setUser={setUser}
+            />
+          }
+        />
+        <Route
+          path="/addinterview"
+          element={
+            <AddInterview
               user={authUser}
               authenticated={authenticated}
               authUser={authUser}
