@@ -12,6 +12,8 @@ This site is a job search managment tool. It keeps track of:
 * state of application: pre-application, applied, interview, accepted, etc.
 * point of contact name and contact info
 
+## Preview
+<img height="500" src="./screenshot.png" alt="landingpage">
 
 ## Plans
 

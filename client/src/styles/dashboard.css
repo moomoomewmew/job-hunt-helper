@@ -30,6 +30,7 @@
     margin: 1em;
     align-items: center;
     overflow: hidden;
+    
 }
 
 .stage-title {
@@ -46,6 +47,8 @@
     background-color: white;
     transition: 0.4s;
     border: 2px solid black;
+    margin: .5em auto;
+    width: 90%;
 }
 
 .opportunity-button:hover {

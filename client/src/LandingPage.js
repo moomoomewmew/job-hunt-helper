@@ -12,7 +12,7 @@ const LandingPage = () => {
                 <Link className='sign-up' to="/newaccount">Sign up for free</Link>
             </div>
             <div className='image'>
-
+                <img height="500" src="./screenshot.png" alt="landingpage"></img>
             </div>
         </div>
     )
