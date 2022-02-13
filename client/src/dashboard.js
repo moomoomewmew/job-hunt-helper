@@ -28,12 +28,16 @@ export default function Dashboard({ authUser, ...props }) {
 
     }
 
+    const handleAddOpportunity = () => {
+        navigate('/createopportunity')
+    }
+
     if (props.authenticated) {
         return (
             <div className='dashboard-box'>
                 <div className='welcome-and-add'>
                     <h1 className='welcome'>Welcome, {authUser.userName}!</h1>
-                    <button className='add-opp-button'>+ add opportunity</button>
+                    <button className='add-opp-button' onClick={handleAddOpportunity}>+ add opportunity</button>
                 </div>
                 <div className='dashboard-box-2'>
                     <Stage name="Wishlist" opportunities={opportunities.filter(opp => opp.stage === 'wishlist')} onEdit={setOpportunities} />
