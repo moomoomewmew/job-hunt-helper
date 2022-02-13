@@ -11,30 +11,35 @@ export default function Dashboard({ authUser, ...props }) {
     console.log(authUser)
     const [opportunities, setOpportunities] = useState([])
 
-    useEffect( () => {
+    useEffect(() => {
         if (!props.authenticated || !authUser.userName) {
             console.log('not logged in')
             return
         }
         Client.get(`/api/opportunities?userName=${authUser.userName}`)
-        .then(opportunities => {
-            console.log(authUser.userName, opportunities)
-            setOpportunities(opportunities.data)
-        })
+            .then(opportunities => {
+                console.log(authUser.userName, opportunities)
+                setOpportunities(opportunities.data)
+            })
     }, [authUser, props.authenticated])
 
-    console.log(opportunities)
+    const navToAddOpp = () => {
+
+    }
 
     if (props.authenticated) {
         return (
             <div className='dashboard-box'>
-                <h1 className='welcome'>Welcome, {authUser.userName}!</h1>
+                <div className='welcome-and-add'>
+                    <h1 className='welcome'>Welcome, {authUser.userName}!</h1>
+                    <button className='add-opp-button'>+ add opportunity</button>
+                </div>
                 <div className='dashboard-box-2'>
-                <Stage name="Wishlist" opportunities={opportunities.filter(opp => opp.stage === 'wishlist')} onEdit={setOpportunities} />
-                <Stage name="Applied" opportunities={opportunities.filter(opp => opp.stage === 'applied')} onEdit={setOpportunities} />
-                <Stage name="Interview" opportunities={opportunities.filter(opp => opp.stage === 'interview')} onEdit={setOpportunities} />
-                <Stage name="Offer" opportunities={opportunities.filter(opp => opp.stage === 'offer')} onEdit={setOpportunities} />
-                <Stage name="Rejected" opportunities={opportunities.filter(opp => opp.stage === 'rejected')} onEdit={setOpportunities} />
+                    <Stage name="Wishlist" opportunities={opportunities.filter(opp => opp.stage === 'wishlist')} onEdit={setOpportunities} />
+                    <Stage name="Applied" opportunities={opportunities.filter(opp => opp.stage === 'applied')} onEdit={setOpportunities} />
+                    <Stage name="Interview" opportunities={opportunities.filter(opp => opp.stage === 'interview')} onEdit={setOpportunities} />
+                    <Stage name="Offer" opportunities={opportunities.filter(opp => opp.stage === 'offer')} onEdit={setOpportunities} />
+                    <Stage name="Rejected" opportunities={opportunities.filter(opp => opp.stage === 'rejected')} onEdit={setOpportunities} />
                 </div>
             </div>
         )
