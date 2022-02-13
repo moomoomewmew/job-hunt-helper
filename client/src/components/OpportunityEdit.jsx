@@ -9,33 +9,20 @@ export default function OpportunityEdit() {
     const { id } = useParams()
     const navigate = useNavigate()
 
-    const [opportunity, setOpportunity] = useState({
-        // jobTitle: '',
-        // stage: '',
-        // company: '',
-        // payRange: '',
-        // location: '',
-        // pointOfContact: '',
-        // phoneNumber: '',
-        // jobPostURL: '',
-        // companyURL: '',
-        // dateApplied: '',
-        // notes: ''
-    })
+    const [opportunity, setOpportunity] = useState({})
 
     useEffect(() => {
         const getOpportunity = async () => {
             await Client.get(`/api/opportunities/${id}`)
                 .then((res) => {
-                    console.log(res.data)
                     setOpportunity(res.data)
+                    document.getElementById('stage').value = res.data.stage
                 })
         }
         getOpportunity()
     }, [])
 
     const handleSubmit = async (e) => {
-        console.log('submitting', e.target)
         e.preventDefault()
         const res = await Client.put(`/api/opportunities/${id}`,
             {
@@ -186,9 +173,15 @@ export default function OpportunityEdit() {
                             <label htmlFor="stage">Stage
                                 <select
                                     className='edit-input'
-                                    value={opportunity.stage}
                                     name="stage"
                                     id="stage"
+                                    onChange={(e) => {
+                                        console.log('onChange')
+                                        const stage = e.target.value;
+                                        const updated = { ...opportunity, stage }
+                                        console.log(updated, e.target)
+                                        setOpportunity(opportunity)
+                                    }}
                                 >
                                     <option value="-">-</option>
                                     <option value="wishlist">wishlist</option>
