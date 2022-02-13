@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import { RegisterUser } from '../services/Auth'
 import '../styles/login.css'
 
-
 const iState = {
     userName: '',
     password: '',
@@ -61,7 +60,7 @@ export default function Register(props) {
                                 onChange={handleChange}
                                 name="userName"
                                 type="text"
-                                placeholder="Create your userName here."
+                                placeholder="Create your username here."
                                 value={formValues.userName}
                                 required
                             />

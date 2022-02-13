@@ -28,9 +28,11 @@
     background-color: rgb(255, 0, 128);
     border-radius: 3em;
     font-family: 'Oswald', sans-serif;    
-    font-weight: 300;
+    font-weight:bold;
     font-size: 1.5em;
     padding: .25em .75em;
+    margin: auto;
+    padding: .25em 3em;
 }
 
 ::placeholder {
@@ -38,4 +40,17 @@
     font-size: 1.5em;
     margin: auto;
     text-align: center;
+}
+
+.input-wrapper {
+display:flex;
+flex-direction: column;
+margin: 0 auto;
+}
+
+.login-title {
+    margin: 0 auto;
+    font-family: 'Lobster', cursive;
+    font-size: 2.5em;
+    margin: auto;
 }
