@@ -3,7 +3,6 @@ import Opportunity from './Opportunity';
 import '../styles/dashboard.css'
 
 export default function Stage(props) {
-console.log(props)
     return (
         <div className='stage-box'>
             <h1 className='stage-title'>{props.name}</h1>

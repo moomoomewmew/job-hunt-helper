@@ -6,9 +6,9 @@ import { BASE_URL } from "./globals/index";
 import './styles/dashboard.css'
 import Client from './services/api';
 import Stage from './components/Stage';
+import DisplayInterviews from './components/DisplayInterviews';
 
 export default function Dashboard({ authUser, ...props }) {
-    console.log(authUser)
     const [opportunities, setOpportunities] = useState([])
     const navigate = useNavigate()
 
@@ -45,6 +45,9 @@ export default function Dashboard({ authUser, ...props }) {
                     <Stage name="Interview" opportunities={opportunities.filter(opp => opp.stage === 'interview')} onEdit={setOpportunities} />
                     <Stage name="Offer" opportunities={opportunities.filter(opp => opp.stage === 'offer')} onEdit={setOpportunities} />
                     <Stage name="Rejected" opportunities={opportunities.filter(opp => opp.stage === 'rejected')} onEdit={setOpportunities} />
+                </div>
+                <div>
+                    <DisplayInterviews />
                 </div>
             </div>
         )

@@ -18,6 +18,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [authUser, setAuthUser] = useState({});
   const [loading, setLoading] = useState(true);
+  const [opportunity, setOpportunity] = useState('')
 
 
   const checkToken = async () => {
@@ -109,7 +110,6 @@ function App() {
           path="/addinterview"
           element={
             <AddInterview
-              user={authUser}
               authenticated={authenticated}
               authUser={authUser}
               checkToken={checkToken}

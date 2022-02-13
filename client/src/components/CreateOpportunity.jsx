@@ -46,7 +46,6 @@ export default function CreateOpportunity(props) {
 
     return (
         <div className="form">
-            <h1 className='position-at-company'>{opportunity.jobTitle} at {opportunity.company}</h1>
             <form onSubmit={handleSubmit}>
                 <div className='input-container'>
                     <div className='row-1'>
