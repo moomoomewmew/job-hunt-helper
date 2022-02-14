@@ -34,20 +34,24 @@ export default function Dashboard({ authUser, ...props }) {
 
     if (props.authenticated) {
         return (
-            <div className='dashboard-box'>
-                <div className='welcome-and-add'>
-                    <h1 className='welcome'>Welcome, {authUser.userName}!</h1>
-                    <button className='add-opp-button' onClick={handleAddOpportunity}>+ add opportunity</button>
-                </div>
-                <div className='dashboard-box-2'>
-                    <Stage name="Wishlist" opportunities={opportunities.filter(opp => opp.stage === 'wishlist')} onEdit={setOpportunities} />
-                    <Stage name="Applied" opportunities={opportunities.filter(opp => opp.stage === 'applied')} onEdit={setOpportunities} />
-                    <Stage name="Interview" opportunities={opportunities.filter(opp => opp.stage === 'interview')} onEdit={setOpportunities} />
-                    <Stage name="Offer" opportunities={opportunities.filter(opp => opp.stage === 'offer')} onEdit={setOpportunities} />
-                    <Stage name="Rejected" opportunities={opportunities.filter(opp => opp.stage === 'rejected')} onEdit={setOpportunities} />
-                </div>
-                <div>
-                    <Interview />
+            <div>
+                <div className='dashboard-box'>
+                    <div className='welcome-and-add'>
+                        <h1 className='welcome'>Welcome, {authUser.userName}!</h1>
+                        <button className='add-opp-button' onClick={handleAddOpportunity}>+ add opportunity</button>
+                    </div>
+                    <div className='dashboard-box-2'>
+                        <Stage name="Wishlist" opportunities={opportunities.filter(opp => opp.stage === 'wishlist')} onEdit={setOpportunities} />
+                        <Stage name="Applied" opportunities={opportunities.filter(opp => opp.stage === 'applied')} onEdit={setOpportunities} />
+                        <Stage name="Interview" opportunities={opportunities.filter(opp => opp.stage === 'interview')} onEdit={setOpportunities} />
+                        <Stage name="Offer" opportunities={opportunities.filter(opp => opp.stage === 'offer')} onEdit={setOpportunities} />
+                        <Stage name="Rejected" opportunities={opportunities.filter(opp => opp.stage === 'rejected')} onEdit={setOpportunities} />
+                    </div>
+                    
+                    <div className='dashboard-box-3'>
+                        <h1>Upcoming Interviews:</h1>
+                        <Interview />
+                    </div>
                 </div>
             </div>
         )
