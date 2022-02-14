@@ -39,6 +39,7 @@ export default function OpportunityEdit() {
                 // notes
             }).then(() => {
                 alert('Your opportunity has successfully been recorded!')
+                navigate('/dashboard')
             })
     }
 

@@ -6,7 +6,7 @@ import { BASE_URL } from "./globals/index";
 import './styles/dashboard.css'
 import Client from './services/api';
 import Stage from './components/Stage';
-import DisplayInterviews from './components/DisplayInterviews';
+import Interview from './components/Interview';
 
 export default function Dashboard({ authUser, ...props }) {
     const [opportunities, setOpportunities] = useState([])
@@ -47,7 +47,7 @@ export default function Dashboard({ authUser, ...props }) {
                     <Stage name="Rejected" opportunities={opportunities.filter(opp => opp.stage === 'rejected')} onEdit={setOpportunities} />
                 </div>
                 <div>
-                    <DisplayInterviews />
+                    <Interview />
                 </div>
             </div>
         )
