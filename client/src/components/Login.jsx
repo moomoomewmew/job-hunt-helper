@@ -18,8 +18,6 @@ export default function LogIn(props) {
         props.setAuthUser(payload)
         props.toggleAuthenticated(true)
         alert('You\'ve successfully logged in!')
-        console.log(props)
-        console.log(payload)
     }
 
     return (

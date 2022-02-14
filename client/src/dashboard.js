@@ -19,7 +19,6 @@ export default function Dashboard({ authUser, ...props }) {
         }
         Client.get(`/api/opportunities?userName=${authUser.userName}`)
             .then(opportunities => {
-                console.log(authUser.userName, opportunities)
                 setOpportunities(opportunities.data)
             })
     }, [authUser, props.authenticated])

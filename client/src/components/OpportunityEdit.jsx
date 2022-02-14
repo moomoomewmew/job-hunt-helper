@@ -173,10 +173,8 @@ export default function OpportunityEdit() {
                             name="stage"
                             id="stage"
                             onChange={(e) => {
-                                console.log('onChange')
                                 const stage = e.target.value;
                                 const updated = { ...opportunity, stage }
-                                console.log(updated, e.target)
                                 setOpportunity(opportunity)
                             }}
                         >

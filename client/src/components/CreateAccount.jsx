@@ -31,7 +31,6 @@ export default function Register(props) {
             alert('Please enter a user name')
         } else if (password.length < 7) {
             alert("Your password must be at least 7 characters long")
-            console.log(password.length)
         } else if (password !== passwordConfirm) {
             alert("Your passwords do not match")
         } else if (userName && password === passwordConfirm && password.length >= 7) {

@@ -5,7 +5,6 @@ import Client from '../services/api'
 
 
 export default function AddInterview(props) {
-    console.log(props)
     const navigate = useNavigate()
 
     const [interview, setInterview] = useState({
@@ -17,7 +16,6 @@ export default function AddInterview(props) {
         notes: ''
     })
 
-    console.log (props)
     
     const handleSubmit = async (e) => {
         e.preventDefault()

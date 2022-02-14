@@ -5,7 +5,6 @@ import Client from '../services/api'
 
 
 export default function CreateOpportunity(props) {
-    console.log(props)
     const navigate = useNavigate()
 
     const [opportunity, setOpportunity] = useState({
@@ -167,10 +166,8 @@ export default function CreateOpportunity(props) {
                                         name="stage"
                                         id="stage"
                                         onChange={(e) => {
-                                            console.log('onChange')
                                             const stage = e.target.value;
                                             const updated = { ...opportunity, stage }
-                                            console.log(updated, e.target)
                                             setOpportunity(opportunity)
                                         }}
                                     >

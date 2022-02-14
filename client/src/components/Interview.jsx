@@ -15,7 +15,6 @@ export default function Interview(authUser, ...props) {
             })
     }, [authUser, props.authenticated])
 
-    console.log(interviews)
 
     return (
         <div className="display-interview-box">
