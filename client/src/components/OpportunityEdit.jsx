@@ -164,7 +164,6 @@ export default function OpportunityEdit() {
                         </div>
                     </div>
                 </div>
-            </form>
             <div className='update-and-delete-buttons'>
                 <div className="stage-label-and-dropdown">
                     <label htmlFor="stage">Stage
@@ -190,6 +189,7 @@ export default function OpportunityEdit() {
                 <button className='these-buttons' type="submit" >Update Opportunity</button>
                 <button className='these-buttons' onClick={handleDelete}>Delete Opportunity</button>
             </div>
+            </form>
         </div>
     )
 }
