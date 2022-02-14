@@ -58,6 +58,7 @@ export default function OpportunityEdit() {
         navigate('/addinterview')
     }
 
+
     return (
         <div className="form">
             <div className='welcome-and-interview-button'>
@@ -93,7 +94,6 @@ export default function OpportunityEdit() {
                                 className='edit-input'
                                 type="text"
                                 defaultValue={opportunity.payRange}
-                                placeholder="Pay Range"
                                 name="payRange"
                                 id='payRange'
                             />
@@ -164,49 +164,34 @@ export default function OpportunityEdit() {
                         </div>
                     </div>
                 </div>
-                <div className='notes-and-buttons'>
-                    <div className='notes-label'>
-                        <label htmlFor="notes">Notes</label>
-                    </div>
-                    <input
-                        className='note-input'
-                        type="text"
-                        defaultValue={opportunity.notes}
-                        placeholder='Notes'
-                        name="notes"
-                        id='notes'
-                    />
-                    <div className='button-box'>
-                        <div className="stage-label-and-dropdown">
-                            <label htmlFor="stage">Stage
-                                <select
-                                    className='edit-input'
-                                    name="stage"
-                                    id="stage"
-                                    onChange={(e) => {
-                                        console.log('onChange')
-                                        const stage = e.target.value;
-                                        const updated = { ...opportunity, stage }
-                                        console.log(updated, e.target)
-                                        setOpportunity(opportunity)
-                                    }}
-                                >
-                                    <option value="-">-</option>
-                                    <option value="wishlist">wishlist</option>
-                                    <option value="applied">applied</option>
-                                    <option value="interview">interview</option>
-                                    <option value="offer">offer</option>
-                                    <option value="rejected">rejected</option>
-                                </select>
-                            </label>
-                        </div>
-                        <div className='update-and-delete-buttons'>
-                            <button className='these-buttons' type="submit" >Update Opportunity</button>
-                            <button className='these-buttons' onClick={handleDelete}>Delete Opportunity</button>
-                        </div>
-                    </div>
-                </div>
             </form>
+            <div className='update-and-delete-buttons'>
+                <div className="stage-label-and-dropdown">
+                    <label htmlFor="stage">Stage
+                        <select
+                            className='edit-input'
+                            name="stage"
+                            id="stage"
+                            onChange={(e) => {
+                                console.log('onChange')
+                                const stage = e.target.value;
+                                const updated = { ...opportunity, stage }
+                                console.log(updated, e.target)
+                                setOpportunity(opportunity)
+                            }}
+                        >
+                            <option value="-">-</option>
+                            <option value="wishlist">wishlist</option>
+                            <option value="applied">applied</option>
+                            <option value="interview">interview</option>
+                            <option value="offer">offer</option>
+                            <option value="rejected">rejected</option>
+                        </select>
+                    </label>
+                </div>
+                <button className='these-buttons' type="submit" >Update Opportunity</button>
+                <button className='these-buttons' onClick={handleDelete}>Delete Opportunity</button>
+            </div>
         </div>
     )
 }

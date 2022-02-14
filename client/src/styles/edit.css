@@ -1,7 +1,6 @@
 .form{
     margin: 0 auto;
-    width: 80vw;
-    border: 3px dotted white;
+    max-width: fit-content;
 }
 
 .edit-input {
@@ -20,6 +19,7 @@ form {
     display: flex;
     flex-direction: row;
 }
+
 .note-input {
     border-radius: .5em;
     width: 12em;
@@ -31,6 +31,7 @@ form {
     padding: -1em;   
     color:black;
     border-radius: 1em;
+
 }
 
 label {
@@ -47,7 +48,6 @@ label {
 .label-input-box {
     display: flex;
     flex-direction: column;
-    border: 3px dotted rgb(226, 27, 209);
 }
 
 .row-1 {
@@ -72,8 +72,7 @@ label {
     flex-direction: row;
     margin:1em;
     border: 2px dotted white;
-
-
+    max-width:max-content;
 }
 
 .notes-and-buttons {
@@ -87,34 +86,61 @@ label {
 
 .input-container {
     width: 52vw;
-    border: 2px dotted rgb(4, 240, 43);
-}
-.notes-label {
-    border: 2px dotted white;
-    margin: 1em;
 }
 
 .stage-label-and-dropdown {
     display:flex;
     flex-direction: column;
-    background-color: blueviolet;
 }
 
 .update-and-delete-buttons {
     display: flex;
-    justify-content: space-between;
-    width: 15vw;
-    margin-left: 1em;
+    max-width: max-content;
+    margin: 3em auto;
+    justify-content: center;
+    align-self: center;
+    border: 2px dotted fuchsia;
 }
 
 .these-buttons {
-    border-radius: 1em;
-    
+    border: 3px solid transparent;
+    border-radius: 3em;
+    transition: 0.3s;
+    font-weight:bold;
+    color: black;
+    background-color: white;
+    font-family: 'Oswald', sans-serif;    
+    font-weight:bold;
+    font-size: 1em;
+    margin: 2em;
+    padding: .25em 3em; 
+}
+
+.these-buttons:hover {
+    background-color: rgb(255, 0, 128);
+    color: white;
 }
 
 .welcome-and-interview-button{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border: 2px dotted rgb(226, 27, 209);
+}
+
+.add-interview-button {
+    border: 3px solid transparent;
+    border-radius: 3em;
+    transition: 0.3s;
+    font-weight:bold;
+    color: black;
+    background-color: white;
+    font-family: 'Oswald', sans-serif;    
+    font-weight:bold;
+    font-size: 1em;
+    padding: .25em 3em; 
+}
+
+.add-interview-button:hover {
+    background-color: rgb(255, 0, 128);
+    color: white;
 }
