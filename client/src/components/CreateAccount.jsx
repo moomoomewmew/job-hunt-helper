@@ -67,7 +67,6 @@ export default function Register(props) {
                         </div>
 
                         <div className="input-wrapper">
-                            {/* <label htmlFor="password">Password</label> */}
                             <input
                                 className='login-input'
                                 onChange={handleChange}
@@ -79,7 +78,6 @@ export default function Register(props) {
                             />
                         </div>
                         <div className="input-wrapper">
-                            {/* <label htmlFor="confirmPassword">Confirm Password</label> */}
                             <input
                                 className='login-input'
                                 onChange={handleChange}

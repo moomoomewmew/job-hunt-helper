@@ -7,7 +7,6 @@ export default function Interview(authUser, ...props) {
 
     const [interviews, setInterviews] = useState([])
 
-    // const navigate = useNavigate()
 
     useEffect(() => {
         Client.get(`/api/interviews`)
