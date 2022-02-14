@@ -23,7 +23,6 @@ export default function AddInterview(props) {
         e.preventDefault()
         const res = await Client.post(`/api/interviews`,
             {
-                userId: props.user.id,
                 time: document.getElementById('time').value,
                 date: document.getElementById('date').value,
                 meetingLink: document.getElementById('meetingLink').value,
