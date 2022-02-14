@@ -1,5 +1,7 @@
 .welcome {
-    margin: .75em;
+    margin:  1em auto;
+    font-family: 'Lobster', cursive;
+
 }
 
 .dashboard-box {
@@ -16,12 +18,16 @@
 .dashboard-box-2 {
     display: flex;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    width: 100%;
-    border: 2px dotted black;
     margin: 1em;
 }
 .dashboard-box-3 {
     margin: 1em;
+}
+
+.dashboard-box-4 {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 2em;
 }
 
 .stage-box {
@@ -48,16 +54,17 @@
 
 .opportunity-button {
     border-radius: 10px;
-    background-color: white;
     transition: 0.4s;
     border: 2px solid black;
-    margin: .5em auto;
+    margin: .5em;
     width: 90%;
+    align-self: center;
 }
 
 .opportunity-button:hover {
     border-radius: 15px;
-    background-color: #e2e7c3;
+    background-color: rgb(255, 0, 128);
+    color:white;
 }
 
 .welcome-and-add {
@@ -66,12 +73,13 @@
 }
 
 .add-opp-button {
-    margin: 1em;
     border-radius: 1em;
     font-size: medium;
     background-color: black;
     color: aliceblue;
     transition: 0.4s;
+    height: 3em;
+    align-self: center;
 
 }
 
@@ -88,8 +96,21 @@
 .individual-interview {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     border: 2px solid rgb(66, 66, 66);
     border-radius: 1em;
     margin: 1em;
+    padding: 0 1em;
+    overflow: hidden;
+}
+
+.details-link {
+    background-color: rgb(66, 66, 66);
+    align-self: center;
+    padding: .5em;
+    border-radius: 1em;
+}
+
+.upcoming-interviews {
+    margin: .5em;
 }

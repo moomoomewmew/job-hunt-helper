@@ -38,6 +38,9 @@ export default function Dashboard({ authUser, ...props }) {
                 <div className='dashboard-box'>
                     <div className='welcome-and-add'>
                         <h1 className='welcome'>Welcome, {authUser.userName}!</h1>
+                    </div>
+                    <div className='dashboard-box-4'>
+                        <h1>Your Opportunities:</h1>
                         <button className='add-opp-button' onClick={handleAddOpportunity}>+ add opportunity</button>
                     </div>
                     <div className='dashboard-box-2'>
@@ -47,9 +50,9 @@ export default function Dashboard({ authUser, ...props }) {
                         <Stage name="Offer" opportunities={opportunities.filter(opp => opp.stage === 'offer')} onEdit={setOpportunities} />
                         <Stage name="Rejected" opportunities={opportunities.filter(opp => opp.stage === 'rejected')} onEdit={setOpportunities} />
                     </div>
-                    
+
                     <div className='dashboard-box-3'>
-                        <h1>Upcoming Interviews:</h1>
+                        <h1 className='upcoming-interviews'>Upcoming Interviews:</h1>
                         <Interview />
                     </div>
                 </div>
