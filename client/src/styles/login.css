@@ -19,15 +19,23 @@
 }
 
 .login-button {
+    border: 3px solid transparent;
+    border-radius: 3em;
+    transition: 0.3s;
+    font-weight:bold;
     color: white;
     background-color: rgb(255, 0, 128);
-    border-radius: 3em;
     font-family: 'Oswald', sans-serif;    
     font-weight:bold;
     font-size: 1.5em;
-    padding: .25em .75em;
     margin: auto;
     padding: .25em 3em;
+
+}
+
+.login-button:hover {
+    background-color: white;
+    color: black;
 }
 
 ::placeholder {
