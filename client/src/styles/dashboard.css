@@ -5,10 +5,8 @@
 }
 
 .dashboard-box {
-    background-color: #EBE8FE;
-    border: 3px solid white;
-    border-bottom: 5px solid lightgray;
-    border-right: 5px solid lightgray;
+    background-color: #cccbcb;
+    border: 5px solid white;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -80,12 +78,14 @@
     transition: 0.4s;
     height: 3em;
     align-self: center;
+    border: 3px solid transparent;
 
 }
 
 .add-opp-button:hover {
-    background-color: rgb(66, 66, 66);
-    font-size: large;
+    background-color: rgb(255, 0, 128);
+    border: 3px solid rgb(255, 0, 128);
+    color: black;
 }
 
 .display-interview-box {

@@ -54,15 +54,12 @@ label {
     display: flex;
     flex-direction: row;
     margin:1em;
-    border: 2px dotted white;
-
 
 }
 .row-2 {
     display: flex;
     flex-direction: row;
     margin:1em;
-    border: 2px dotted white;
 
 
 
@@ -71,15 +68,12 @@ label {
     display: flex;
     flex-direction: row;
     margin:1em;
-    border: 2px dotted white;
-    max-width:max-content;
 }
 
 .notes-and-buttons {
     display: block;
     flex-direction: column;
     align-items: center;
-    border: 2px dotted white;
     width: 18vw;
     padding: 1em;
 }
@@ -99,7 +93,6 @@ label {
     margin: 3em auto;
     justify-content: center;
     align-self: center;
-    border: 2px dotted fuchsia;
 }
 
 .these-buttons {
@@ -143,4 +136,10 @@ label {
 .add-interview-button:hover {
     background-color: rgb(255, 0, 128);
     color: white;
+}
+
+.stage-label-and-dropdown{
+    display: flex;
+    flex-direction: column;
+    width: 20em;
 }

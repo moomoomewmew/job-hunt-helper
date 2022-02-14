@@ -75,7 +75,6 @@ export default function CreateOpportunity(props) {
                                 className='edit-input'
                                 type="text"
                                 defaultValue={opportunity.payRange}
-                                placeholder="Pay Range"
                                 name="payRange"
                                 id='payRange'
                             />
@@ -144,6 +143,7 @@ export default function CreateOpportunity(props) {
                                 id="dateApplied"
                             />
                         </div>
+                        
                     </div>
                 </div>
                 <div className='notes-and-buttons'>
@@ -182,12 +182,11 @@ export default function CreateOpportunity(props) {
                                 </select>
                             </label>
                         </div>
-                        <div className='update-and-delete-buttons'>
-                            <button className='these-buttons' type="submit" >Add Opportunity</button>
-                        </div>
                     </div>
                 </div>
             </form>
+            <button className='these-buttons' type="submit" >Add Opportunity</button>
+
         </div>
     )
 }
